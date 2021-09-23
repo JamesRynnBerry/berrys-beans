@@ -1,0 +1,15 @@
+beans|store_id
+      t.string :store_id
+      t.string :int
+      t.string :user_id
+      t.string :int
+      t.string :name
+      t.string :type
+      t.string :price
+      t.string :int
+      t.string :altitude
+      t.string :flavor
+      t.string :origin
+      t.string :process
+      t.string :producer
+      t.string :store_name

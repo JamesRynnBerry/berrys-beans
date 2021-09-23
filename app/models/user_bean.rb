@@ -1,0 +1,2 @@
+class UserBean < ApplicationRecord
+end

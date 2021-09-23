@@ -1,0 +1,2 @@
+class UserBeansController < ApplicationController
+end
