@@ -10,38 +10,48 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_23_165413) do
+ActiveRecord::Schema.define(version: 2021_09_25_205304) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "beans", force: :cascade do |t|
-    t.integer "store_id"
-    t.integer "user_id"
     t.string "name"
-    t.string "type"
+    t.string "roast"
     t.integer "price"
-    t.string "altitude"
     t.string "flavor"
     t.string "origin"
     t.string "process"
     t.string "producer"
-    t.string "store_name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.string "comment"
+    t.integer "user_id"
+    t.integer "bean_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "store_beans", force: :cascade do |t|
+    t.integer "store_id"
+    t.integer "bean_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "stores", force: :cascade do |t|
-    t.string "store_name"
+    t.string "name"
     t.string "location"
-    t.integer "bean_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "user_beans", force: :cascade do |t|
-    t.integer "user_id"
     t.integer "bean_id"
+    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -49,7 +59,7 @@ ActiveRecord::Schema.define(version: 2021_09_23_165413) do
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
-    t.string "password"
+    t.string "password_digest"
     t.string "username"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
