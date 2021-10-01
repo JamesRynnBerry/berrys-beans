@@ -12,7 +12,6 @@ const BeanContainer = ({bean}) => {
             <p>Price: {bean.price}</p>
             <p>Flavor: {bean.flavor}</p>
             <p>Origin: {bean.origin}</p>
-            <p>Price: {bean.price}</p>
             <p>Producer: {bean.producer}</p>
         </div>
     )

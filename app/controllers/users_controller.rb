@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-    skip_before_action :authorize, only: [:create, :show]
+    skip_before_action :authorize, only: [:create, :show, :index]
 
     def index
         @users = User.all
@@ -17,7 +17,7 @@ class UsersController < ApplicationController
     end
 
     def update
-        user = User.find(params[:id])
+        user = User.find_by(id: params[:id])
         user.update(users_params)
         render json: user
     end

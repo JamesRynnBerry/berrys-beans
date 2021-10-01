@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :users
   resources :beans, only: [:index]
   resources :store_beans
   resources :user_beans

@@ -7,6 +7,7 @@ import { useHistory } from 'react-router-dom';
 
 const MainContainer = ({setUser, user}) => { 
 
+    const [searchTerm, setSearchTerm] = useState('')
     const [beans, setBeans] = useState([])
 
     let history = useHistory();
@@ -49,11 +50,29 @@ const MainContainer = ({setUser, user}) => {
             <div>
                 {console.log(user)}
                 <h1>Welcome {user.name}!</h1>
+                
                 <div>
                     <button onClick = {handleClick}>Logout</button>
                     <button onClick = {addBean}>Add a Bean</button>
                     <button onClick = {changeEmail}>Change Your Info</button>
-                    <BeanList beans = {beans}/>
+                    <br/>
+                    <input 
+                    type="text" 
+                    placeholder="Search..." 
+                    onChange={event => {setSearchTerm(event.target.value)}}/>
+                    {beans.filter((val) => {
+                        if(searchTerm == "") {
+                            return val
+                        } else if (val.name.toLowerCase().includes(searchTerm.toLowerCase())) {
+                            return val
+                        }
+                    }).map((val, key) => {
+                        return <div className = "bean" key = {key}> 
+                            <p> {val.name} {val.roast} {val.flavor} {val.price} {val.origin} </p> 
+                            </div>
+                    })}
+                    {/* <BeanList beans = {beans}/> */}
+
                 </div>
             </div>
         )

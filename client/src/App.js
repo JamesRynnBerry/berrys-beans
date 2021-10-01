@@ -9,6 +9,7 @@ import ChangeAccount from './ChangeAccount';
 
 function App() {
   const [user, setUser] = useState("");
+  const [email, setEmail] = useState("");
   
   // useEffect(() => {
   //   async function fetchMyAPI() {
@@ -41,18 +42,21 @@ function App() {
 
   return (
     <div className="App">
+      
       <BrowserRouter>
         <Route exact path = "/">
           <Login setUser={setUser} user={user}/>
         </Route>
+        
         <Route exact path = "/home">
           <MainContainer setUser={setUser} user={user}/>
         </Route>
+        
         <Route exact path = "/new-bean">
           <NewBean user={user}/>
         </Route>
         <Route exact path = "/portfolio">
-          <ChangeAccount user={user} setUser={setUser}/>
+          <ChangeAccount user={user} setUser={setUser} email={email} setEmail={setEmail}/>
         </Route>
       </BrowserRouter>
 
