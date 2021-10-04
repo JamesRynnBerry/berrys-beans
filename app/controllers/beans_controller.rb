@@ -1,5 +1,5 @@
 class BeansController < ApplicationController
-    # before_action :authorize, only: [:index, :show]
+    before_action :authorize, only: [:index, :show]
 
     def index 
         beans = Bean.all

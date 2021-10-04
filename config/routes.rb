@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   
   resources :users
-  resources :beans, only: [:index]
+  resources :beans, only: [:index, :show]
   resources :store_beans
   resources :user_beans
   resources :beans

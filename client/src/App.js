@@ -5,11 +5,16 @@ import Login from "./Login";
 import NewBean from "./NewBean";
 import MainContainer from './MainContainer';
 import ChangeAccount from './ChangeAccount';
+import SingleBean from './SingleBean';
 
 
 function App() {
   const [user, setUser] = useState("");
   const [email, setEmail] = useState("");
+  const [myBeans, setMyBeans] = useState([])
+  // const [bean, setBean] = useState([])
+  const [beans, setBeans] = useState ([])
+  // const [beanID, setBeanID] = useState ([])
   
   // useEffect(() => {
   //   async function fetchMyAPI() {
@@ -40,6 +45,32 @@ function App() {
     });
   }, []);
 
+  useEffect(() => {
+    fetch("/beans")
+    .then(res => res.json())
+    .then(data => setBeans(data))
+}, [])
+
+//   useEffect(() => {
+//     fetch(`/beans/${bean.id}`)
+//     .then(res => res.json())
+//     .then(data => setBeanID(data))
+// }, [])
+
+  // const mappedBeans = myBeans.map(bean=>{return bean})
+
+  const save = (bean) => {
+    if(!myBeans.includes(bean)){
+      const newMyBeans = [...myBeans, bean]
+      setMyBeans(newMyBeans)
+    }
+  }
+
+  const remove = (bean) => {
+    const newMyBeans = [...myBeans].filter(myBean=>bean.id !== myBean.id)
+    setMyBeans(newMyBeans)
+  }
+
   return (
     <div className="App">
       
@@ -48,16 +79,22 @@ function App() {
           <Login setUser={setUser} user={user}/>
         </Route>
         
-        <Route exact path = "/home">
-          <MainContainer setUser={setUser} user={user}/>
-        </Route>
-        
         <Route exact path = "/new-bean">
           <NewBean user={user}/>
         </Route>
+
         <Route exact path = "/portfolio">
           <ChangeAccount user={user} setUser={setUser} email={email} setEmail={setEmail}/>
         </Route>
+
+        <Route exact path = "/singlebean/:id">
+          <SingleBean user={user} beans={beans} click={save} remove={remove}/>
+        </Route>
+
+        <Route exact path = "/home">
+          <MainContainer setUser={setUser} user={user} beans={beans}/>
+        </Route>
+        
       </BrowserRouter>
 
     </div>

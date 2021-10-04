@@ -1,27 +1,26 @@
 import React from 'react';
 // import Filter from './Filter';
 import BeanList from './BeanList';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Link } from 'react';
 import { useHistory } from 'react-router-dom';
+import BeanContainer from './BeanContainer';
+import BeanItem from './BeanItem';
 
-
-const MainContainer = ({setUser, user}) => { 
+const MainContainer = ({setUser, user, setBeans, beans}) => { 
 
     const [searchTerm, setSearchTerm] = useState('')
-    const [beans, setBeans] = useState([])
 
     let history = useHistory();
-
-    useEffect(() => {
-        fetch('/beans')
-        .then(res => res.json())
-        .then(data => setBeans(data))
-    }, [])
 
     function sortItOut(data) {
         let beanStuff = data.sort((a, b) => b.likes - a.likes)
         setBeans(beanStuff)
     }
+    console.log(beans, "test")
+
+    // function beanPusher (){
+    //     history.push("/singlebean/${bean.id}", bean)
+    // }
 
     function handleClick() {
         fetch("/logout", {
@@ -45,7 +44,7 @@ const MainContainer = ({setUser, user}) => {
         function changeEmail() {
             history.push('portfolio')
         }
-    
+        // console.log(bean, 'beancheck')
         return (
             <div>
                 {console.log(user)}
@@ -66,9 +65,11 @@ const MainContainer = ({setUser, user}) => {
                         } else if (val.name.toLowerCase().includes(searchTerm.toLowerCase())) {
                             return val
                         }
-                    }).map((val, key) => {
-                        return <div className = "bean" key = {key}> 
-                            <p> {val.name} {val.roast} {val.flavor} {val.price} {val.origin} </p> 
+                    }).map((bean) => {
+                        return <div className = "bean container"> 
+                            <BeanItem bean={bean} key={bean.id}/>
+                            {console.log( "t")}
+                            {/* <button onClick={(e) => history.push(`/singlebean/`)}>Learn More!</button> */}
                             </div>
                     })}
                     {/* <BeanList beans = {beans}/> */}
