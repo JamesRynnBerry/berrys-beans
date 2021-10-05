@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>The Map</title>
+    <style>
+        #map{
+            height: 400px;
+            width:100%;
+        }
+    </style>
+</head>
+<body>
+    <h1>The Map</h1>
+    <div id="map"></div> 
+    <script>
+        function initMap(){
+            //Map options
+            var options = {
+                zoom:1, 
+                center: {lat:40.72849314019794, lng: -73.98741403025014}
+            }
+            // New map
+            var map = new google.maps.Map(document.getElementById('map', options));
+            /*
+            // Add marker
+            var marker = new google.maps.Marker({
+                position:{lat:40.72849314019794, lng: -73.98741403025014},
+                map:map,
+                icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/'
+
+            });
+
+            var infoWindow = new google.maps.InfoWindow({
+                content:'<h1>Porto Rico Beans</h1>'
+            });
+
+            marker.addListener('click', function(){
+                infoWindow.open(map, marker);
+            }); 
+            */
+
+            // Array of markers
+
+            var markers = [
+            {
+                coords:{lat:40.72956634679498, lgn:-74.00157609385076},
+                iconImage:'https://developers.google.com/maps/documentation/javascript/examples/full/images/',
+                content: '<h1>Porto Rico Coffee Roaster</h1>'
+            },
+            {
+                coords:{lat:40.72849314019794, lng:-73.98741403025014},
+                content: '<h1>Porto Rico Coffee Roaster</h1>'
+            },
+            {
+                coords:{lat:40.7182228661944, lgn:-73.98815145944329},
+                content: '<h1>Porto Rico Coffee Roaster</h1>'
+            }
+            ];
+
+            //Loop through markers
+
+            for(var i = 0; i < markers.length;i++){
+                addMarker(markers[i]);
+            }
+
+            // addMarker({coords:{lat:40.72849314019794, lng:-73.98741403025014},
+            // iconImage:'https://developers.google.com/maps/documentation/javascript/examples/full/images/',
+            // content: '<h1>Porto Rico Coffee Roaster</h1>'});
+            // addMarker({coords:{lat:40.72956634679498, lgn:-74.00157609385076},
+            // iconImage:'https://developers.google.com/maps/documentation/javascript/examples/full/images/',
+            // content: '<h1>Porto Rico Coffee Roaster</h1>'});
+            // addMarker({coords:{lat:40.7182228661944, lgn:-73.98815145944329},
+            // iconImage:'https://developers.google.com/maps/documentation/javascript/examples/full/images/',
+            // content: '<h1>Porto Rico Coffee Roaster</h1>'});
+            //Add Marker Function
+
+            function addMarker(props){
+                var marker = new google.maps.Marker({
+                position:props.coords,
+                map:map,
+                icon:props.iconImage
+
+            });
+
+                if(props.iconImage){
+                    // Set Icon Image
+                    marker.setIcon(props.iconImage);
+                }
+
+                //Check Content
+                if(props.content){
+                    var infoWindow = new google.maps.InfoWindow({
+                    content:props.content
+                    });
+
+                    marker.addListener('click', function(){
+                        infoWindow.open(map, marker);
+                    }); 
+                }
+            }
+        }
+    </script>
+
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCZu8uJllCsdilEX7yOTjWPgazu50efNMY&callback=initMap"></script>
+
+</body>
+</html>

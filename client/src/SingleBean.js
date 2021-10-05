@@ -1,6 +1,8 @@
 import {useHistory, useParams} from 'react-router-dom';
 import {useEffect, useState} from 'react'
 import BeanItem from './BeanItem'
+// import CoffeeMap from './CoffeeMap'
+import BeanMap from './BeanMap'
 
 
 function SingleBean({beans}) {
@@ -12,7 +14,7 @@ function SingleBean({beans}) {
 
     let beanFilter = beans.filter(bean => bean.id == id)[0]
     
-    console.log(beanFilter)
+    console.log(beanFilter, "#1")
 
     const keptBean = history.location.state
 
@@ -30,6 +32,7 @@ function SingleBean({beans}) {
             <p>Process: {beanFilter.process} </p>
             <p>Producer: {beanFilter.producer} </p>
             <p>Price: {beanFilter.price} </p>
+            <BeanMap/>
             {/* <button onClick={()=>click(beans)}> Save This Bean </button> */}
             <button onClick={goBack}>Return To Home</button>
         </div>

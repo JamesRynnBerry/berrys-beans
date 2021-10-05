@@ -65,8 +65,8 @@ const MainContainer = ({setUser, user, setBeans, beans}) => {
                         } else if (val.name.toLowerCase().includes(searchTerm.toLowerCase())) {
                             return val
                         }
-                    }).map((bean) => {
-                        return <div className = "bean container"> 
+                    }).map((bean, key) => {
+                        return <div key = {key} className = "bean container"> 
                             <BeanItem bean={bean} key={bean.id}/>
                             {console.log(bean, "t")}
                             {/* <button onClick={(e) => history.push(`/singlebean/`)}>Learn More!</button> */}
