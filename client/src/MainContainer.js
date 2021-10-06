@@ -5,6 +5,7 @@ import { useState, useEffect, Link } from 'react';
 import { useHistory } from 'react-router-dom';
 import BeanContainer from './BeanContainer';
 import BeanItem from './BeanItem';
+import coffeeStain from './coffeeStain.png'
 
 const MainContainer = ({setUser, user, setBeans, beans}) => { 
 
@@ -16,7 +17,7 @@ const MainContainer = ({setUser, user, setBeans, beans}) => {
         let beanStuff = data.sort((a, b) => b.likes - a.likes)
         setBeans(beanStuff)
     }
-    console.log(beans, "test")
+
 
     // function beanPusher (){
     //     history.push("/singlebean/${bean.id}", bean)
@@ -46,19 +47,24 @@ const MainContainer = ({setUser, user, setBeans, beans}) => {
         }
         // console.log(bean, 'beancheck')
         return (
-            <div>
-                {console.log(user)}
+            <div className = "MainContainerContainer">
                 <h1>Welcome {user.name}!</h1>
                 
-                <div>
+                <div className = "navBar">
                     <button onClick = {handleClick}>Logout</button>
                     <button onClick = {addBean}>Add a Bean</button>
                     <button onClick = {changeEmail}>Change Your Info</button>
                     <br/>
+                </div>
+                
+                <div>
+                    <div className = "searchBar">
                     <input 
                     type="text" 
                     placeholder="Search..." 
                     onChange={event => {setSearchTerm(event.target.value)}}/>
+                    </div>
+                    <div className = "beanCard">
                     {beans.filter((val) => {
                         if(searchTerm == "") {
                             return val
@@ -66,14 +72,13 @@ const MainContainer = ({setUser, user, setBeans, beans}) => {
                             return val
                         }
                     }).map((bean, key) => {
-                        return <div key = {key} className = "bean container"> 
-                            <BeanItem bean={bean} key={bean.id}/>
-                            {console.log(bean, "t")}
+                        return <div key = {key} className = "beanContainer">
+                            <img src={coffeeStain} alt="coffee stain"/>
+                            <BeanItem bean={bean} key={bean.id} className = "beanItem"/>
                             {/* <button onClick={(e) => history.push(`/singlebean/`)}>Learn More!</button> */}
                             </div>
                     })}
-                    {/* <BeanList beans = {beans}/> */}
-
+                    </div>
                 </div>
             </div>
         )

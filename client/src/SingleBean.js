@@ -4,12 +4,15 @@ import BeanItem from './BeanItem'
 // import CoffeeMap from './CoffeeMap'
 import BeanMap from './BeanMap'
 
+require('react-dom');
+window.React2 = require('react');
+console.log(window.React1 === window.React2);
+
 
 function SingleBean({beans}) {
 
     const {id} = useParams()
-    console.log(id)
-    console.log(beans, "butts")
+
     let history = useHistory()
 
     let beanFilter = beans.filter(bean => bean.id == id)[0]

@@ -27,7 +27,6 @@ const NewBean = ({user}) => {
             producer: newProducer,
             user_id: user.id
         }
-        console.log(newBean)
 
         fetch('/beans', {
             method: 'POST',

@@ -3,7 +3,6 @@ import BeanContainer from './BeanContainer'
 
 
 const BeanList = ({beans}) => {
-    console.log(beans)
     return (
         <div>
             <ul id="beanlist">
