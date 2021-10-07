@@ -14,7 +14,7 @@ function BeanItem({bean}) {
         <div className='bean row'>
             <BeanContainer bean={bean}/> 
             <button onClick={handleClick} className= "button">
-                Learn More!
+                Find a Store!
             </button>
         </div>
     )

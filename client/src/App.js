@@ -35,7 +35,6 @@ function App() {
   //   });
   // }
 
-  
 
   useEffect(() =>{
     fetch("/me")

@@ -47,6 +47,7 @@ const NewBean = ({user}) => {
             <h3>Add a New Bean:</h3>
             <form onSubmit={handleSubmit}>
                 <label>Bean Name</label>
+                <br/>
                 <input 
                 type="text"
                 placeholder="Bean Name"
@@ -57,6 +58,7 @@ const NewBean = ({user}) => {
                 <br/>
 
                 <label>Type of Roast</label>
+                <br/>
                 <input 
                 type="text"
                 placeholder="Bean Roast"
@@ -67,6 +69,7 @@ const NewBean = ({user}) => {
                 <br/>
 
                 <label>Bean Price</label>
+                <br/>
                 <input 
                 type="text"
                 placeholder="Bean price"
@@ -77,6 +80,7 @@ const NewBean = ({user}) => {
                 <br/>
 
                 <label>Bean Flavor</label>
+                <br/>
                 <input 
                 type="text"
                 placeholder="Bean flavor"
@@ -87,6 +91,7 @@ const NewBean = ({user}) => {
                 <br/>
 
                 <label>Bean Origin</label>
+                <br/>
                 <input 
                 type="text"
                 placeholder="Bean origin"
@@ -97,6 +102,7 @@ const NewBean = ({user}) => {
                 <br/>
 
                 <label>Bean Process</label>
+                <br/>
                 <input 
                 type="text"
                 placeholder="Bean process"
@@ -107,6 +113,7 @@ const NewBean = ({user}) => {
                 <br/>
 
                 <label>Bean Producer</label>
+                <br/>
                 <input 
                 type="text"
                 placeholder="Bean producer"

@@ -79,12 +79,32 @@ transition: all .5s ease-in-out
 .beanCard{
   overflow-y: scroll;
   overflow-x: hidden;
-  height: 38rem;
+  height: 23rem;
   padding-top: 1rem;
   padding-bottom: 0rem;
   padding-left: 5rem;
   padding-right: 5rem;
-  margin-bottom: 2rem;
+  margin-bottom: 15rem;
+}
+
+.beanCard::-webkit-scrollbar {
+  right: 10vw;
+  width: 1vw;
+}
+
+.beanCard::-webkit-scrollbar-thumb {
+  background: radial-gradient(hsla(0, 35%, 34%, 0.521) 60%, hsl(0, 35%, 34%));
+  border: hsla(36, 100%, 51%, 1);
+  box-shadow: inset 0 0 5px hsla(36, 100%, 51%, 1);
+  border-radius: 10px;
+  transition: 0.25s all 1s ease-in-out;
+}
+
+.beanCard::-webkit-scrollbar-track {
+  background: transparent;
+  box-shadow: inset 0 0 5px rgb(185, 255, 94);
+  border: solid 1px royalblue ;
+  border-radius: 10px;
 }
 
 #searchBar {
@@ -204,7 +224,7 @@ transition: all .5s ease-in-out
   margin-top: 0;
   margin-bottom: 12rem;
   padding: .8rem;
-  padding-bottom: 6.3rem;
+  padding-bottom: 15.5rem;
   border-style: ridge;
   border-radius: 15px;
   transition: all .5s ease-in-out;
@@ -312,3 +332,5 @@ transition: all .5s ease-in-out
   border-color: rgb(249, 255, 138);
   box-shadow: 0 0 25px rgb(249, 255, 138);
 }
+
+

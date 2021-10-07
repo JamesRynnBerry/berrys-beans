@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useHistory } from "react-router-dom"
 
 
@@ -36,7 +36,7 @@ const Login = ({setUser}) => {
         if (r.ok) {
         r.json().then(
             (user) => setUser(user));
-            history.push('/home')
+            history.push('/')
         }
     });
 
@@ -67,6 +67,10 @@ const Login = ({setUser}) => {
             }
         });
         }
+
+        useEffect(() => {
+            localStorage.setItem("name", JSON.stringify(name));
+        }, [name]);
 
     return (
         <div className="loginBody">

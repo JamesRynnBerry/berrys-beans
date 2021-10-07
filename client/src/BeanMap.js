@@ -1,5 +1,6 @@
-import React from 'react';
-import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
+import React, { useState } from 'react';
+import { GoogleMap, useJsApiLoader, Marker, InfoWindow } from '@react-google-maps/api';
+
 
 const containerStyle = {
     width: '40.5rem',
@@ -34,6 +35,9 @@ function createMapOptions(maps) {
 
 function BeanMap(){
 
+    // const [selectedStore, setSelectedStore] = useState(null);
+
+
     const { isLoaded } = useJsApiLoader({
         id: 'google-map-script',
         googleMapsApiKey: "AIzaSyCZu8uJllCsdilEX7yOTjWPgazu50efNMY"
@@ -44,16 +48,61 @@ function BeanMap(){
     const onLoad = React.useCallback(function callback(map) {
 
         function addMarker(beanMarkerObject){
-            console.log(beanMarkerObject)
+            console.log(beanMarkerObject.name)
             var basicMarker = new window.google.maps.Marker({
             position:{lat:beanMarkerObject.latitude,lng:beanMarkerObject.longitude},
             map:map,
-            icon:beanMarkerObject.iconImage
-
+            icon:beanMarkerObject.iconImage,
+            content:beanMarkerObject.name,
+            content:beanMarkerObject.address,
             });
+            if(beanMarkerObject.name){
+                console.log(beanMarkerObject.name)
+                var infoWindow = new window.google.maps.InfoWindow({
+                    content:beanMarkerObject.name,
+                });
+
+                basicMarker.addListener('click', function() {
+                    infoWindow.open(map, basicMarker)
+                });
+                // infoWindow.addListener('closeclick', function() {
+                //     infoWindow.close(map, basicMarker)
+                // });
+
+            };
+
+          
         }
 
+        // const contentString = 
+        // <div id = "content">
+        // <div id = "siteNotice">
+        // </div>
+        // <h1 id="firstHeading" class="firstHeading>Porto Rico Importing Co."></h1>
+        // <div id="bodyContent">
+        // <p><b>Porto Rico Importing Co.</b> located at 201 Bleecker St, New York, NY 10012</p>
+        // </div>
+        // </div>;
 
+        // const infowindow = new window.google.maps.InfoWindow({
+        //     content: contentString,
+        // });
+
+        // const marker = new window.google.maps.Marker({
+        //     position:{lat:40.718257042573775, lng:-73.9881713750316},
+        //     map,
+        //     title: "Porto Rico Importing Co."
+        // })
+
+        // marker.addListener("click", () => {
+        //     infowindow.open({
+        //         anchor:marker,
+        //         map,
+        //         shouldFocus: false,
+        //     })
+        // });
+
+        
 
         // const marker = new window.google.maps.Marker({
         //     position:{lat:40.72849314019794,lng: -73.98741403025014},
@@ -63,17 +112,18 @@ function BeanMap(){
     
         const beanMarkerObjects = [
             {
-                name: "Porto Rico Importing",
+                name: "Porto Rico Importing Co.",
                 latitude: 40.718257042573775,
-                longitude: -73.9881713750316
+                longitude: -73.9881713750316,
+                address: "201 Bleecker St, New York, NY 10012"
             },
             {
-                name: "Porto Rico Importing",
+                name: "Porto Rico Importing Co.",
                 latitude: 40.72825256465811,
                 longitude: -73.98737234837931
             },
             {
-                name: "Porto Rico Importing",
+                name: "Porto Rico Importing Co.",
                 latitude: 40.72934307265706,
                 longitude: -74.00137551232535
             }
@@ -117,7 +167,22 @@ function BeanMap(){
             onLoad={onLoad}
             onUnmount={onUnmount}
             >
-                { /* Child components, such as markers, info windows, etc. */ }
+                {/* {beanMarkerObjects.map(beanMarkerObject => (
+                    <Marker 
+            onCLick={() => {
+                setSelectedStore(beanMarkerObject.name);
+            }}
+            />
+                ))}
+
+            {selectedStore && (
+                <InfoWindow >
+                    <div>
+
+                    </div>
+                <InfoWindow/>
+            )} */}
+            
             <></>
             </GoogleMap >
         </div>
