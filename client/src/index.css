@@ -1,11 +1,11 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: oswald;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: radial-gradient(circle at top , #e4e17e 10%, #7d4c26 22.5%, #e4e17e 45%, #c4ed83 65.25%, #422409 85%) ;
+  background: radial-gradient(circle at top , #e4e17e 8%, #7d4c26 15.5%, #e4e17e 45%, #c4ed83 65.25%, #422409 85%) ;
+  overflow: hidden;
+  background-size: 100%;
 }
 
 code {
@@ -13,4 +13,25 @@ code {
     monospace;
 }
 
+h1{
+  font-size: 8rem;
+  font-weight: 900;
+  text-decoration: underline;
+  color: rgb(255, 255, 255);
+  -webkit-text-stroke-width: .25px;
+  -webkit-text-stroke-color: black;
+}
 
+
+
+h3{
+  font-size: 2.5rem;
+  text-decoration: underline;
+}
+
+
+
+@font-face{
+font-family: oswald;
+src: url(./Oswald/Oswald-VariableFont_wght.ttf)
+}

@@ -1,6 +1,11 @@
 class SessionsController < ApplicationController
-    skip_before_action :authorize, only: :create
+    skip_before_action :authorize, only: [:create, :index]
 
+    # def index 
+    #     cookes[:cookies_hi] ||='rose'
+    #     cookes[:cookies_hi] ||='world'
+    #     render json: {cookies:cookies.to_hash, session:session}
+    # end
 
     def create
         user = User.find_by(email: params[:email])

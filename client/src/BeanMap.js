@@ -2,14 +2,35 @@ import React from 'react';
 import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
 
 const containerStyle = {
-    width: '400px',
-    height: '400px'
+    width: '40.5rem',
+    height: '22.5rem',
+    borderRadius: '1.5rem',
+    border: "solid 1px yellow"
 };
 
 const center = {
     lat: 40.7128,
     lng: -74.0060
 };
+
+function createMapOptions(maps) {
+    // next props are exposed at maps
+    // "Animation", "ControlPosition", "MapTypeControlStyle", "MapTypeId",
+    // "NavigationControlStyle", "ScaleControlStyle", "StrokePosition", "SymbolPath", "ZoomControlStyle",
+    // "DirectionsStatus", "DirectionsTravelMode", "DirectionsUnitSystem", "DistanceMatrixStatus",
+    // "DistanceMatrixElementStatus", "ElevationStatus", "GeocoderLocationType", "GeocoderStatus", "KmlLayerStatus",
+    // "MaxZoomStatus", "StreetViewStatus", "TransitMode", "TransitRoutePreference", "TravelMode", "UnitSystem"
+    return {
+    zoomControlOptions: {
+        position: maps.ControlPosition.center,
+        style: maps.ZoomControlStyle.SMALL
+    },
+    mapTypeControlOptions: {
+        position: maps.ControlPosition.TOP_RIGHT
+    },
+    mapTypeControl: true
+    };
+}
 
 function BeanMap(){
 
@@ -31,6 +52,8 @@ function BeanMap(){
 
             });
         }
+
+
 
         // const marker = new window.google.maps.Marker({
         //     position:{lat:40.72849314019794,lng: -73.98741403025014},
@@ -81,9 +104,13 @@ function BeanMap(){
         //     ]
         // }, [])
 
+
+
     return isLoaded ? (
         <div>
             <GoogleMap
+            className = "BeanMap"
+            options={createMapOptions}
             mapContainerStyle={containerStyle}
             center={center}
             zoom={12}
@@ -92,7 +119,7 @@ function BeanMap(){
             >
                 { /* Child components, such as markers, info windows, etc. */ }
             <></>
-            </GoogleMap>
+            </GoogleMap >
         </div>
         )  : <></>
 }

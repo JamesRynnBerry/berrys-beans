@@ -34,10 +34,11 @@ class UsersController < ApplicationController
 
     def show
         user = User.find_by(id: session[:user_id])
-        if user
-        render json: {
-            user: user
-        }
+        # if user
+        # render json: {
+        #     user: user
+        # }
+        render json: user
         else
             render json: {
                 status: 500,

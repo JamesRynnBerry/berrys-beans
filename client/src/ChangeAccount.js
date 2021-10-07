@@ -38,16 +38,24 @@ const ChangeAccount = ({user, setUser}) => {
         });
     }
 
-    return (
-        <div>
-            <div> 
-                Username: {user.name}
-                <br/>
-                Email: {user.email}
-                <hr/>
-            </div>
+    const goBack = () => {
+        history.push("/home")
+    }
 
-            <form onSubmit = {changeEmail}>
+    return (
+        <div className = "changeAccountBody">
+            <div>
+                <p>
+                Username: {user.name}
+                </p>
+                <br/>
+                <p>
+                Email: {user.email}
+                </p>
+                <hr/>
+                {console.log(user)}
+            </div>
+            <form onSubmit = {changeEmail} className = "changeAccountTextBody">
                 <label>Change Email</label>
                 <input
                 type='text'
@@ -56,11 +64,13 @@ const ChangeAccount = ({user, setUser}) => {
                 onChange = {(e) => setChangedEmail(e.target.value)}
                 required>
                 </input>
-                <button type="submit">Submit</button>
+                <button type="submit" className = "button">Submit</button>
+                {/* <button onClick = {deleteUser} className = "button">Delete Account</button> */}
+                <button onClick={goBack} className= "button">Return To Home</button>
             </form>
             <br/>
 
-            <button onClick = {deleteUser} >Delete Account</button>
+            
         </div>
     );
 }

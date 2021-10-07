@@ -13,8 +13,7 @@ function BeanItem({bean}) {
     return(
         <div className='bean row'>
             <BeanContainer bean={bean}/> 
-            
-            <button onClick={handleClick}>
+            <button onClick={handleClick} className= "button">
                 Learn More!
             </button>
         </div>

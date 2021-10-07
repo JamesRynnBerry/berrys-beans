@@ -9,15 +9,23 @@ window.React2 = require('react');
 console.log(window.React1 === window.React2);
 
 
-function SingleBean({beans}) {
+function SingleBean({beans, user}) {
+
+const [bean, setBean] = useState("")
 
     const {id} = useParams()
 
+    useEffect(() => {
+        fetch(`/beans/${id}`)
+        .then(res => res.json())
+        .then(data => setBean(data))
+    }, [])
+
     let history = useHistory()
 
-    let beanFilter = beans.filter(bean => bean.id == id)[0]
-    
-    console.log(beanFilter, "#1")
+    console.log(beans, bean)
+
+    // let beanFilter = beans.filter(bean => bean.id == id)[0]
 
     const keptBean = history.location.state
 
@@ -26,18 +34,18 @@ function SingleBean({beans}) {
     }
 
     return (
-        <div>
+        <div className = "SingleBean">
             {/* <BeanItem beanFilter={beanFilter}/> */}
-            <p>Name: {beanFilter.name}</p>
-            <p>Roast: {beanFilter.roast} </p>
-            <p>Flavor: {beanFilter.flavor} </p>
-            <p>Origin: {beanFilter.origin} </p>
-            <p>Process: {beanFilter.process} </p>
-            <p>Producer: {beanFilter.producer} </p>
-            <p>Price: {beanFilter.price} </p>
+            <h3>Name: {bean.name}</h3>
+            <p>Roast: {bean.roast} </p>
+            <p>Flavor: {bean.flavor} </p>
+            <p>Origin: {bean.origin} </p>
+            <p>Process: {bean.process} </p>
+            <p>Producer: {bean.producer} </p>
+            <p>Price: {bean.price} </p>
             <BeanMap/>
             {/* <button onClick={()=>click(beans)}> Save This Bean </button> */}
-            <button onClick={goBack}>Return To Home</button>
+            <button onClick={goBack} className= "button">Return To Home</button>
         </div>
     )
 }

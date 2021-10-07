@@ -55,7 +55,7 @@ transition: all .5s ease-in-out
   justify-content: space-between;
   flex-direction: row-reverse;
   border-radius: 15px;
-  height: 14rem;
+  min-height: 14rem;
   width: 35rem;
   transition: all .5s ease-in-out
 }
@@ -77,20 +77,30 @@ transition: all .5s ease-in-out
 }
 
 .beanCard{
-  overflow: scroll;
-  height: 40rem;
-  padding: 5rem;
-  
+  overflow-y: scroll;
+  overflow-x: hidden;
+  height: 38rem;
+  padding-top: 1rem;
+  padding-bottom: 0rem;
+  padding-left: 5rem;
+  padding-right: 5rem;
+  margin-bottom: 2rem;
 }
 
 #searchBar {
-  width: 100%;
+  /* width: 100%;
   height: 32px;
   border-radius: 3px;
   border: 1px solid #eaeaea;
   padding: 5px 10px;
-  font-size: 12px;
+  font-size: 12px; */
   position: center;
+  margin: .25rem;
+  padding: .5rem;
+  border: solid 1px grey;
+  border-radius: 10px;
+  background: #f4e5c9;
+  transition: all .5s ease-in-out
 }
 
 #searchWrapper {
@@ -102,4 +112,203 @@ transition: all .5s ease-in-out
   position: absolute;
   top: 2px;
   right: 15px;
+}
+
+.searchBarInput {
+  position: center;
+  margin: .25rem;
+  padding: .5rem;
+  border: solid 1px grey;
+  border-radius: 10px;
+  background: #f4e5c9;
+  transition: all .5s ease-in-out;
+  border-color: rgb(0, 0, 0);
+  box-shadow: 0 0 1px rgb(0, 0, 0)
+}
+
+.searchBarInput:hover:focus {
+  background-color:white;
+  outline: none !important;
+  border-color: rgb(249, 255, 138);
+  box-shadow: 0 0 25px rgb(249, 255, 138);
+}
+
+p{
+  font-size: 1.5rem;
+  text-decoration: underline;
+}
+
+
+h1{
+  font-size: 5rem;
+  font-weight: bold;
+  text-decoration: underline;
+  color: rgb(249, 255, 138);
+  -webkit-text-stroke-width: .25px;
+  -webkit-text-stroke-color: rgb(63, 28, 0);
+  
+}
+
+.Welcome{
+  height: 10vh;
+  padding: 3vh;
+  margin: 2vh;
+  background: linear-gradient(90deg, #e4e17e 16%,  #7d4c26 40%, #7d4c26 60%,#e4e17e 84%) ;
+  border-radius: 15px;
+}
+
+.SingleBean{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(207, 187, 143, 0.447);
+  margin-top: 2rem;
+  padding: .8rem;
+  border-style: ridge;
+  justify-content: space-between;
+  border-radius: 15px;
+  transition: all .5s ease-in-out;
+  gap: .8rem;
+}
+
+.SingleBean p h3 {
+  margin: 12.5rem;
+
+}
+
+.BeanMap {
+  height: 12vh;
+}
+
+.button{
+margin: .25rem;
+padding: .5rem;
+border: solid 1px grey;
+border-radius: 10px;
+background: #f4e5c9;
+transition: all .5s ease-in-out
+}
+
+.button:hover{
+  background: #6f340f;
+  border: solid 1px black;
+  color: #f5f1eb;
+  transition: all .75s ease-in-out
+}
+
+.loginBody{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(207, 187, 143, 0.447);
+  margin-top: 0;
+  margin-bottom: 12rem;
+  padding: .8rem;
+  padding-bottom: 6.3rem;
+  border-style: ridge;
+  border-radius: 15px;
+  transition: all .5s ease-in-out;
+  gap: .8rem;
+}
+
+.loginBody:hover{
+  background-color: sienna;
+  transition: all .5s ease-in-out;
+}
+
+.loginBody input {
+  height: 1.9rem;
+  background: rgb(255, 255, 255);
+  border-radius: 9px;
+}
+
+.loginBody input:focus:hover{
+  background-color:white;
+  outline: none !important;
+  border-color: rgb(249, 255, 138);
+  box-shadow: 0 0 25px rgb(249, 255, 138);
+}
+
+.formBody {
+  text-align: center;
+}
+
+.searchBar {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.uiContainer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.newBeanBody{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-color: rgba(207, 187, 143, 0.447);
+  margin-top: 0;
+  margin-bottom: 025rem;
+  padding: .8rem;
+  padding-bottom: 37.5rem;
+  border-style: ridge;
+  border-radius: 15px;
+  transition: all .5s ease-in-out;
+  gap: .8rem;
+}
+
+.newBeanBody input {
+  height: 1.9rem;
+  background: rgb(255, 255, 255);
+  border-radius: 9px;
+}
+
+.newBeanBody input:focus:hover{
+  background-color:white;
+  outline: none !important;
+  border-color: rgb(249, 255, 138);
+  box-shadow: 0 0 25px rgb(249, 255, 138);
+}
+
+.changeAccountBody{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-color: rgba(207, 187, 143, 0.447);
+  margin-top: 0;
+  margin-bottom: 025rem;
+  padding: .8rem;
+  padding-bottom: 37.5rem;
+  border-style: ridge;
+  border-radius: 15px;
+  transition: all .5s ease-in-out;
+  gap: .8rem;
+}
+
+.changeAccountTextBody{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 0;
+  padding: .8rem;
+  border-radius: 15px;
+  transition: all .5s ease-in-out;
+  gap: .8rem;
+}
+
+.changeAccountTextBody input {
+  height: 1.9rem;
+  background: rgb(255, 255, 255);
+  border-radius: 9px;
+}
+
+.changeAccountTextBody input:focus:hover{
+  background-color:white;
+  outline: none !important;
+  border-color: rgb(249, 255, 138);
+  box-shadow: 0 0 25px rgb(249, 255, 138);
 }

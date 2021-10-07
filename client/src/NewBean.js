@@ -38,9 +38,13 @@ const NewBean = ({user}) => {
         history.push('/home')
     }
 
+    const goBack = () => {
+        history.push("/home")
+    }
+
     return(
-        <div>
-            <h2>Add a New Bean:</h2>
+        <div className ="newBeanBody" >
+            <h3>Add a New Bean:</h3>
             <form onSubmit={handleSubmit}>
                 <label>Bean Name</label>
                 <input 
@@ -111,8 +115,9 @@ const NewBean = ({user}) => {
                 </input>
                 <br/>
 
-                <button type = "Submit">Submit</button>
-                <hr/>
+                <button type = "Submit" className = "button">Submit</button>
+                <br/>
+                <button onClick={goBack} className= "button">Return To Home</button>
             </form>
         </div>
     )

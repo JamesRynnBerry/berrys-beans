@@ -18,6 +18,10 @@ const MainContainer = ({setUser, user, setBeans, beans}) => {
         setBeans(beanStuff)
     }
 
+    useEffect(() => {
+        setUser(user)
+        console.log( "1",user)
+    })
 
     // function beanPusher (){
     //     history.push("/singlebean/${bean.id}", bean)
@@ -48,8 +52,9 @@ const MainContainer = ({setUser, user, setBeans, beans}) => {
         // console.log(bean, 'beancheck')
         return (
             <div className = "MainContainerContainer">
-                <h1>Welcome {user.name}!</h1>
-                
+                <div className = "Welcome">
+                <h1>Welcome!</h1>
+                </div>
                 <div className = "navBar">
                     <button onClick = {handleClick}>Logout</button>
                     <button onClick = {addBean}>Add a Bean</button>
@@ -57,9 +62,10 @@ const MainContainer = ({setUser, user, setBeans, beans}) => {
                     <br/>
                 </div>
                 
-                <div>
+                <div className = "uiContainer">
                     <div className = "searchBar">
                     <input 
+                    className = "searchBarInput"
                     type="text" 
                     placeholder="Search..." 
                     onChange={event => {setSearchTerm(event.target.value)}}/>

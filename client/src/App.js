@@ -9,7 +9,7 @@ import SingleBean from './SingleBean';
 
 
 function App() {
-  const [user, setUser] = useState("");
+  const [user, setUser] = useState(false);
   const [email, setEmail] = useState("");
   const [myBeans, setMyBeans] = useState([])
   // const [bean, setBean] = useState([])
@@ -35,15 +35,17 @@ function App() {
   //   });
   // }
 
-  // I want the fetch to initiate on a user state change (line 23). 
+  
+
   useEffect(() =>{
-    fetch("http://localhost:3000/me")
+    fetch("/me")
     .then((r) => {
-      if (!r) {
-        r.json().then((user) => console.log("butts", user));
+      if (r.ok) {
+        r.json().then((user) => setUser(user));
       }
     });
   }, []);
+
 
   useEffect(() => {
     fetch("/beans")
@@ -51,11 +53,7 @@ function App() {
     .then(data => setBeans(data))
 }, [])
 
-//   useEffect(() => {
-//     fetch(`/beans/${bean.id}`)
-//     .then(res => res.json())
-//     .then(data => setBeanID(data))
-// }, [])
+
 
   // const mappedBeans = myBeans.map(bean=>{return bean})
 
@@ -70,6 +68,7 @@ function App() {
     const newMyBeans = [...myBeans].filter(myBean=>bean.id !== myBean.id)
     setMyBeans(newMyBeans)
   }
+  console.log(user)
 
   return (
     <div className="App">

@@ -32,9 +32,11 @@ const Login = ({setUser}) => {
         body: JSON.stringify(signup)
     })
     .then((r) => {
+        console.log(r)
         if (r.ok) {
-        r.json().then((user) => setUser(user));
-        history.push('/home')
+        r.json().then(
+            (user) => setUser(user));
+            history.push('/home')
         }
     });
 
@@ -56,7 +58,8 @@ const Login = ({setUser}) => {
             },
             body: JSON.stringify({name, email, password})
         })
-        .then((r) => r.json()) 
+        .then((r) => 
+        r.json()) 
         .then((user) => { 
             if (user) {
             setUser(user)
@@ -66,9 +69,9 @@ const Login = ({setUser}) => {
         }
 
     return (
-        <div>
+        <div className="loginBody">
             <h1>Berry's Beans</h1>
-            <div>
+            <div className= "formBody">
             <form onSubmit = {logIn}>
                 <h3>Login</h3>
                 <label>
@@ -103,11 +106,11 @@ const Login = ({setUser}) => {
                     />
                 </label>
                 <div>
-                    <button type="submit">Login</button>
+                    <button type="submit" className="button">Login</button>
                 </div>
             </form>
-            </div>
-            <div>
+            {/* </div>
+            <div> */}
             <form onSubmit = {signUp}>
                 <h3>Become a user!</h3>
                 <label>
@@ -142,7 +145,7 @@ const Login = ({setUser}) => {
                     />
                 </label>
                 <div>
-                    <button type="submit">Signup</button>
+                    <button type="submit" className= "button">Signup</button>
                 </div>
             </form>
             </div>
