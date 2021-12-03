@@ -5,19 +5,17 @@ import { useHistory } from 'react-router-dom';
 const ChangeAccount = ({user, setUser}) => {
 
     let history = useHistory();
-
     const [changedEmail, setChangedEmail] = useState('');
+    console.log(user, "USER IN CHANGEACCOUNT")
 
     function changeEmail() {
-    fetch(`/users/${user.id}`, {
-    method: "PATCH",
-    headers: {
-        "Content-Type": "application/json",
-        Accept: 'application/json'
-    },
-        body: JSON.stringify({
-            email: changedEmail
-            })
+        fetch(`/users/${user.id}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+                Accept: 'application/json'
+            },
+            body: JSON.stringify( {email: changedEmail} )
             })
             .then(res => res.json())
             .then(data => console.log(data))
@@ -44,6 +42,7 @@ const ChangeAccount = ({user, setUser}) => {
 
     return (
         <div className = "changeAccountBody">
+            {console.log(user, user.email, user.name, "Change Account")}
             <div>
                 <p>
                 Username: {user.name}
@@ -53,7 +52,6 @@ const ChangeAccount = ({user, setUser}) => {
                 Email: {user.email}
                 </p>
                 <hr/>
-                {console.log(user)}
             </div>
             <form onSubmit = {changeEmail} className = "changeAccountTextBody">
                 <label>Change Email</label>

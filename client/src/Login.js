@@ -17,7 +17,7 @@ const Login = ({setUser}) => {
 
     function signUp(e) {
         e.preventDefault();
-
+        console.log("HELLO IM SIGNING UP")
         const signup = {
             name: newName,
             email: newEmail,
@@ -25,31 +25,27 @@ const Login = ({setUser}) => {
         }
 
         fetch('/signup', {
-        method: "POST",
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(signup)
-    })
-    .then((r) => {
-        console.log(r)
-        if (r.ok) {
-        r.json().then(
-            (user) => setUser(user));
-            history.push('/')
-        }
-    });
-
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(signup)
+        })
+        .then((r) => {
+            console.log(r)
+            if (r.ok) {
+                r.json().then(
+                (user) => setUser(user));
+                history.push('/')
+            }
+            else {
+                history.push("/")
+            }
+        });
     }
     
     function logIn(e) {
         e.preventDefault();
-
-        // const logup = {
-        //     name: name,
-        //     email: email,
-        //     password: password,
-        // }
 
         fetch('/login', {
             method: "POST",
@@ -58,15 +54,19 @@ const Login = ({setUser}) => {
             },
             body: JSON.stringify({name, email, password})
         })
-        .then((r) => 
-        r.json()) 
-        .then((user) => { 
-            if (user) {
-            setUser(user)
-            history.push('/home')
+        .then((r) => {
+            if (r.ok) {
+                r.json().then((user) => { 
+                    console.log(user, "IN LOGIN FILE")
+                    setUser(user)
+                    history.push('/home')
+                });
             }
-        });
-        }
+            else {
+                history.push("/")
+            }
+        })
+    }
 
         useEffect(() => {
             localStorage.setItem("name", JSON.stringify(name));

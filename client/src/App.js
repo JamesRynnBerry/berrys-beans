@@ -9,7 +9,7 @@ import SingleBean from './SingleBean';
 
 
 function App() {
-  const [user, setUser] = useState(false);
+  const [user, setUser] = useState({});
   const [email, setEmail] = useState("");
   const [myBeans, setMyBeans] = useState([])
   // const [bean, setBean] = useState([])
@@ -42,15 +42,27 @@ function App() {
       if (r.ok) {
         r.json().then((user) => setUser(user));
       }
+      // else {
+      //   setUser({})
+      // }
     });
   }, []);
 
 
   useEffect(() => {
     fetch("/beans")
-    .then(res => res.json())
+    .then((res) => {
+      console.log(res)
+      return res.json()
+    })
     .then(data => setBeans(data))
 }, [])
+
+function addNewBean(newBean) {
+  const updatedBeanArray = [...beans, newBean];
+  setBeans(updatedBeanArray);
+  console.log("boop", updatedBeanArray)
+}
 
 
 
@@ -67,7 +79,7 @@ function App() {
     const newMyBeans = [...myBeans].filter(myBean=>bean.id !== myBean.id)
     setMyBeans(newMyBeans)
   }
-  console.log(user)
+  console.log(user, "IN APP FILE")
 
   return (
     <div className="App">
@@ -78,7 +90,7 @@ function App() {
         </Route>
         
         <Route exact path = "/new-bean">
-          <NewBean user={user}/>
+          <NewBean user={user} addNewBean={addNewBean}/>
         </Route>
 
         <Route exact path = "/portfolio">

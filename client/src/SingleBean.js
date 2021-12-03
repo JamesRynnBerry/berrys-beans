@@ -5,14 +5,9 @@ import BeanItem from './BeanItem'
 import BeanMap from './BeanMap'
 
 require('react-dom');
-window.React2 = require('react');
-console.log(window.React1 === window.React2);
-
 
 function SingleBean({beans, user}) {
-
-const [bean, setBean] = useState("")
-
+    const [bean, setBean] = useState("")
     const {id} = useParams()
 
     useEffect(() => {

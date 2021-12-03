@@ -2,7 +2,7 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
-const NewBean = ({user}) => {
+const NewBean = ({user,  addNewBean}) => {
 
     const [newName, setNewName] = useState ('');
     const [newRoast, setNewRoast] = useState ('');
@@ -35,6 +35,8 @@ const NewBean = ({user}) => {
             },
             body: JSON.stringify(newBean)
         })
+        .then((r) => r.json())
+        .then((newBeanResponse) => addNewBean(newBeanResponse))
         history.push('/home')
     }
 

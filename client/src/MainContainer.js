@@ -40,9 +40,9 @@ const MainContainer = ({setUser, user, setBeans, beans}) => {
 
         function addBean() {
             if (true) {
-            history.push('/new-bean')
+                history.push('/new-bean')
             } else  {
-            console.log("No Beans!")
+                console.log("No Beans!")
             }
         }
 
