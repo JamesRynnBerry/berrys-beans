@@ -12,28 +12,8 @@ function App() {
   const [user, setUser] = useState({});
   const [email, setEmail] = useState("");
   const [myBeans, setMyBeans] = useState([])
-  // const [bean, setBean] = useState([])
   const [beans, setBeans] = useState ([])
-  // const [beanID, setBeanID] = useState ([])
   
-  // useEffect(() => {
-  //   async function fetchMyAPI() {
-  //     let url = "http://localhost:3000/me";
-  //     let config = {};
-  //     const response = await
-  //     fetchMyAPI(url)
-  //     console.log(response)
-  //   }
-
-  //   fetchMyAPI();
-  // }, []); 
-
-  // if(!user) {
-  //   fetch("http://localhost:3000/me")
-  //   .then(response => response.json)
-  //   .then(response => {setUser(response.text);
-  //   });
-  // }
 
 
   useEffect(() =>{
@@ -42,9 +22,6 @@ function App() {
       if (r.ok) {
         r.json().then((user) => setUser(user));
       }
-      // else {
-      //   setUser({})
-      // }
     });
   }, []);
 
@@ -61,7 +38,6 @@ function App() {
 function addNewBean(newBean) {
   const updatedBeanArray = [...beans, newBean];
   setBeans(updatedBeanArray);
-  console.log("boop", updatedBeanArray)
 }
 
 

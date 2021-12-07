@@ -18,9 +18,7 @@ function SingleBean({beans, user}) {
 
     let history = useHistory()
 
-    console.log(beans, bean)
 
-    // let beanFilter = beans.filter(bean => bean.id == id)[0]
 
     const keptBean = history.location.state
 
@@ -30,7 +28,6 @@ function SingleBean({beans, user}) {
 
     return (
         <div className = "SingleBean">
-            {/* <BeanItem beanFilter={beanFilter}/> */}
             <h3>Name: {bean.name}</h3>
             <p>Roast: {bean.roast} </p>
             <p>Flavor: {bean.flavor} </p>
