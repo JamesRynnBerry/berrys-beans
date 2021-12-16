@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { useHistory } from "react-router-dom"
 
 
-const Login = ({setUser}) => {
+const Login = ( {setUser} ) => {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -17,7 +17,6 @@ const Login = ({setUser}) => {
 
     function signUp(e) {
         e.preventDefault();
-        console.log("HELLO IM SIGNING UP")
         const signup = {
             name: newName,
             email: newEmail,
@@ -32,7 +31,6 @@ const Login = ({setUser}) => {
             body: JSON.stringify(signup)
         })
         .then((r) => {
-            console.log(r)
             if (r.ok) {
                 r.json().then(
                 (user) => setUser(user));
@@ -57,7 +55,6 @@ const Login = ({setUser}) => {
         .then((r) => {
             if (r.ok) {
                 r.json().then((user) => { 
-                    console.log(user, "IN LOGIN FILE")
                     setUser(user)
                     history.push('/home')
                 });

@@ -18,10 +18,10 @@ const MainContainer = ({setUser, user, setBeans, beans}) => {
         setBeans(beanStuff)
     }
 
-    useEffect(() => {
-        setUser(user)
-        console.log( "1",user)
-    })
+    // useEffect(() => {
+    //     setUser(user)
+    //     console.log( "1",user)
+    // })
 
     // function beanPusher (){
     //     history.push("/singlebean/${bean.id}", bean)
@@ -42,14 +42,12 @@ const MainContainer = ({setUser, user, setBeans, beans}) => {
             if (true) {
                 history.push('/new-bean')
             } else  {
-                console.log("No Beans!")
             }
         }
 
         function changeEmail() {
             history.push('portfolio')
         }
-        // console.log(bean, 'beancheck')
         return (
             <div className = "MainContainerContainer">
                 <div className = "Welcome">

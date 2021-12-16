@@ -35,20 +35,17 @@ function createMapOptions(maps) {
 
 function BeanMap(){
 
-    // const [selectedStore, setSelectedStore] = useState(null);
 
 
     const { isLoaded } = useJsApiLoader({
         id: 'google-map-script',
         googleMapsApiKey: "AIzaSyCZu8uJllCsdilEX7yOTjWPgazu50efNMY"
         })
-    console.log("yellow", isLoaded)
     const [map, setMap] = React.useState(null)
 
     const onLoad = React.useCallback(function callback(map) {
 
         function addMarker(beanMarkerObject){
-            console.log(beanMarkerObject.name)
             var basicMarker = new window.google.maps.Marker({
             position:{lat:beanMarkerObject.latitude,lng:beanMarkerObject.longitude},
             map:map,
@@ -57,7 +54,6 @@ function BeanMap(){
             content:beanMarkerObject.address,
             });
             if(beanMarkerObject.name){
-                console.log(beanMarkerObject.name)
                 var infoWindow = new window.google.maps.InfoWindow({
                     content:beanMarkerObject.name,
                 });
@@ -130,12 +126,10 @@ function BeanMap(){
         ]
 
         for(var i = 0; i < beanMarkerObjects.length;i++){
-            console.log('test', i)
             addMarker(beanMarkerObjects[i]);
         }
 
-        // const bounds = new window.google.maps.LatLngBounds();
-        // map.fitBounds(bounds);
+
         setMap(map)
     }, [])
 

@@ -55,7 +55,6 @@ function addNewBean(newBean) {
     const newMyBeans = [...myBeans].filter(myBean=>bean.id !== myBean.id)
     setMyBeans(newMyBeans)
   }
-  console.log(user, "IN APP FILE")
 
   return (
     <div className="App">

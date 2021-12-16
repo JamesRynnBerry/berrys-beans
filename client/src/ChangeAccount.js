@@ -6,7 +6,6 @@ const ChangeAccount = ({user, setUser}) => {
 
     let history = useHistory();
     const [changedEmail, setChangedEmail] = useState('');
-    console.log(user, "USER IN CHANGEACCOUNT")
 
     function changeEmail() {
         fetch(`/users/${user.id}`, {
@@ -42,7 +41,6 @@ const ChangeAccount = ({user, setUser}) => {
 
     return (
         <div className = "changeAccountBody">
-            {console.log(user, user.email, user.name, "Change Account")}
             <div>
                 <p>
                 Username: {user.name}

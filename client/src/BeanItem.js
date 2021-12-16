@@ -6,7 +6,6 @@ function BeanItem({bean}) {
     let history = useHistory ()
 
     const handleClick = () => {
-        // console.log(bean.id)
         history.push(`/singlebean/${bean.id}`)
     }
 
