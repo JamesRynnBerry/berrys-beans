@@ -31,9 +31,15 @@ The first thing you will want to do is to create an account, you will be asked t
 
 This will take you to the main page of the application. You will be able to see some of the beans that I have already added to the page. You can search through them using a filter at the top, so for example if you knew you wanted to find beans only from a specific region, or that are of a specific blend, all you have to do is type in what you desire in the search bar. 
 
+If you would like to see the store at which each of the beans are sold, you can conviently do so by clicking the Learn More button inside of each bean. This will show you the location of the stores at which the beans are sold. 
+
 If you know that there is a bean you love, and would like to add it to the list of beans for the world to see, all you need to do is to click on the Add Bean button, and you will be taken to a form where you can add beans to the list!
 
 Want to change your account email? Click on the Update Your Info button and you will be able to change the email associated with your account.
+
+And that's the end of step 3! Way to be!
+
+I hope you enjoy the app. It is by no means perfect and is a work in progress. 
 
 # Getting Started with Create React App
 

@@ -61,7 +61,7 @@ const ChangeAccount = ({user, setUser}) => {
                 required>
                 </input>
                 <button type="submit" className = "button">Submit</button>
-                <button onClick = {deleteUser} className = "button">Delete Account</button>
+                {/* <button onClick = {deleteUser} className = "button">Delete Account</button> */}
                 <button onClick={goBack} className= "button">Return To Home</button>
             </form>
             <br/>
