@@ -29,6 +29,8 @@ If everything has gone as it should, you should see the login page of the applic
 # Using the application. 
 The first thing you will want to do is to create an account, you will be asked to provide a username, an email, and a password, which you can then use to login.
 
+Bug Alert! There is a bug that sometimes occurs in this moment where the servers require a hard reset to login. What that entails is, once you have created your account, you will try to sign in and it will reject your sign in. All you have to do, is to reload your webpage, sign in with the same information you created your account with, and you will go in totally fine. I apologize for the inconvenience.
+
 This will take you to the main page of the application. You will be able to see some of the beans that I have already added to the page. You can search through them using a filter at the top, so for example if you knew you wanted to find beans only from a specific region, or that are of a specific blend, all you have to do is type in what you desire in the search bar. 
 
 If you would like to see the store at which each of the beans are sold, you can conviently do so by clicking the Learn More button inside of each bean. This will show you the location of the stores at which the beans are sold. 
