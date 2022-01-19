@@ -1,3 +1,40 @@
+# Introduction to the application.
+
+This project was created because I love coffee and I wanted to create a simple database where users could store different beans that they enjoy. 
+
+# Getting my app onto your computer. 
+The first step you need to take is to clone the repository for my application. 
+When you are inside your terminal, in whichever folder you so desire to keep my application in, type in: git clone https://github.com/JamesRynnBerry/berrys-beans
+
+This will pull the repository into your folder so that you can access it from your computer.
+
+The next step is to go into the proper file. From the root folder where you brought my app into, you will want to type: cd berrys-beans 
+
+This will bring you into the folder of my application! Well done step 1! 
+
+# Starting the application locally.
+From here, you will need to start up two different servers in order to start the application. This application was built using both React and Ruby on Rails, so  the first step will be to create an additional command line terminal so that you can run both servers at once. 
+
+Once you have your additional command line setup ensuring that you are in the correct, berrys-beans folder. In only one of your command lines, you will you will then type: cd client 
+
+This will put you into the proper, deeper folder within the application to run the React server on.
+
+Where you are inside the berrys-beans folder, type in: rails s
+Where you are inside the Client folder, type in: npm start 
+
+You should make sure to start up the rails server first (rails s).
+
+If everything has gone as it should, you should see the login page of the application! Woohoo step 2!
+
+# Using the application. 
+The first thing you will want to do is to create an account, you will be asked to provide a username, an email, and a password, which you can then use to login.
+
+This will take you to the main page of the application. You will be able to see some of the beans that I have already added to the page. You can search through them using a filter at the top, so for example if you knew you wanted to find beans only from a specific region, or that are of a specific blend, all you have to do is type in what you desire in the search bar. 
+
+If you know that there is a bean you love, and would like to add it to the list of beans for the world to see, all you need to do is to click on the Add Bean button, and you will be taken to a form where you can add beans to the list!
+
+Want to change your account email? Click on the Update Your Info button and you will be able to change the email associated with your account.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
